@@ -1,15 +1,8 @@
-let
-  jupyter = import (builtins.fetchGit {
-    url = https://github.com/tweag/jupyterWith;
-    rev = "10d64ee254050de69d0dc51c9c39fdadf1398c38";
-  }) {};
+{ pkgs ? import <nixpkgs> {} }:
 
-  ipython = jupyter.kernels.iPythonWith {
-    name = "python";
-  };
-
-  jupyterEnvironment = jupyter.jupyterlabWith {
-    kernels = [ ipython ];
-  };
-in
-  jupyterEnvironment.env
+pkgs.mkShell {
+  buildInputs = [
+    pkgs.python39
+    pkgs.python39Packages.poetry
+  ];
+}
