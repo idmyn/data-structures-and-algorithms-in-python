@@ -21,5 +21,5 @@ poetry](https://python-poetry.org/docs/#installing-with-pipx) (or running
 
 ```shell
 poetry install
-poetry run jupyter lab
+poetry run jupyter notebook notebooks
 ```
